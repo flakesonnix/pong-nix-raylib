@@ -23,15 +23,15 @@
       "locked": {
         "lastModified": 1793200917,
         "narHash": "sha256-UsSL2/wY5nVXWgOMTnnWIMMeg9nUAZP/mSvn+hwQNLo=",
-        "ref": "refs/heads/main",
+        "owner": "flakesonnix",
+        "repo": "nixray",
         "rev": "8f078f3eac6c94e90a51f37cef1d5909ca09de9d",
-        "revCount": 47,
-        "type": "git",
-        "url": "file:../nixray"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:../nixray"
+        "owner": "flakesonnix",
+        "repo": "nixray",
+        "type": "github"
       }
     },
     "root": {

@@ -1,8 +1,8 @@
 {
-  description = "2D Pong in Nix, powered by the local nixray plugin (no audio)";
+  description = "2D Pong in Nix, powered by nixray (no audio)";
 
   inputs = {
-    nixray.url = "git+file:../nixray";
+    nixray.url = "github:flakesonnix/nixray";
     nixpkgs.follows = "nixray/nixpkgs";
   };
 

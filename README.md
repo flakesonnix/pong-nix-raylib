@@ -1,22 +1,22 @@
 # Pong / nixray
 
-2D Pong written in Nix using the local plugin from `../nixray`. No audio or
+2D Pong written in Nix using [nixray](https://github.com/flakesonnix/nixray). No audio or
 external graphics assets. The first player to **7 points** wins.
 
 ## Run
 
-Keep `pong-nix-raylib` and `nixray` next to each other. Requires Nix with flakes
-and an X11/Wayland desktop. Run from this directory:
+Requires Nix with flakes and an X11/Wayland desktop. The nixray dependency is
+fetched from GitHub; no sibling checkout is needed. Run from this directory:
 
 ```sh
 nix run .
 ```
 
-Alternatively, use the built nixray launcher directly:
+Alternatively, build and run the packaged launcher:
 
 ```sh
-nix build ../nixray
-./result/bin/nixray pong.nix
+nix build .
+./result/bin/pong
 ```
 
 `nix run .` builds a `pong` launcher with matching Nix/plugin versions.
@@ -57,8 +57,11 @@ nix run . -- --arg hidden true --arg maxFrames 5
 - `game.nix`: pure state machine and physics with small simulation steps.
 - `render.nix`: court, scoreboard, ball trail, and status overlays.
 - `app.nix`: nixray frame and keyboard integration.
-- `pong.nix`: directly runnable entry point.
+- `pong.nix`: entry point used by the packaged launcher.
 
-The flake uses the local Git checkout `git+file:../nixray`, pinned by `flake.lock`.
-After new commits there, run `nix flake update nixray` from this directory.
-Use the direct nixray launcher to test uncommitted nixray changes.
+The flake uses `github:flakesonnix/nixray`, pinned by `flake.lock`.
+Run `nix flake update nixray` to update it. To test a local checkout instead:
+
+```sh
+nix run . --override-input nixray ../nixray
+```
